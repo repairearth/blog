@@ -78,5 +78,5 @@ avatar: /images/avatar.jpg
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/weinot/weinot.github.io.git
+  repo: git://github.com/weinot/weinot.github.io.git
   branch: master
