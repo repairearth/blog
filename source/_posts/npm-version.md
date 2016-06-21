@@ -69,7 +69,7 @@ see: [koa-todo][4]
 当重构了模块，从设计上就有很大不同的情况下，需要升级 `x` 版本号。
 遵循这几条规则，这样用户在引入这个模块的时候就可以轻松的通过 `semver` 提供的验证机制来更轻松的使用你的模块。
 
-原谅地址：[node.js 中的版本管理][5]
+原文地址：[node.js 中的版本管理][5]
 
   [1]: http://semver.org/lang/zh-CN
   [2]: https://docs.npmjs.com/misc/semver
