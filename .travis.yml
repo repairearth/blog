@@ -10,7 +10,7 @@ install:
 before_script:
 - git config --global user.name 'weinot'
 - git config --global user.email 'weinot@gmail.com'
-- sed -i'' "s~https://github.com/weinot/weinot.github.io.git~https://${REPO_TOKEN}@github.com/weinot/weinot.github.io.git~"
+- sed -i'' "s~https://github.com/weinot/weinot.github.io.git~https://${REPO_Token}@github.com/weinot/weinot.github.io.git~"
   _config.yml
 script:
 - npm run deploy
