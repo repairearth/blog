@@ -1,15 +1,19 @@
 language: node_js
-
 node_js:
-  - "5"
-
+- '5'
 branches:
   only:
   - master
-
 install:
 - npm install hexo-cli -g
 - npm install
-
+before_script:
+- git config --global user.name 'weinot'
+- git config --global user.email 'weinot@gmail.com'
+- sed -i'' "s~git@github.com:weinot/weinot.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/weinot/weinot.github.io.git~"
+  _config.yml
 script:
-- npm run deploy  # hexo clean && hexo g -d
+- npm run deploy
+env:
+  global:
+    secure: auWoUqc96PBWW9eT4oKPuLQAjDO7Qvs0rm9li4d38hMrGElv1odoHl/2o4gKvZ+J+2T8z6mY/uoFtu77OzkvGA6+WyGnE7sl8GQGeQMz2kiT2gUk0syNOrKAKGnQ34PfZ/IIYxOmPE8J3QAtSrsQocb+YnyUoUh3ILKiqd2ejfA+NMit7g5YCVmtm7e8cIA7qj+KG8KRiLy17paHYbgTfzOMUo05LUNRLpLvcd4RZeivP4B+Y7s8ay7NY5o99EzW5R0mJiNMVbRdzjFM+wDbTdCU4b9tEbZ9CxDrkDJmivTqMWLu2AEfwHXb8CFrSl2+rletyxQSwCspEQ2YPDAahTWuWk+xBOI5EqOHcBsyYrfi2a+HfNduMNIb35R6XjE1I3Anlru3sDxruQxzXk813meO/Ev/I+1rlPvPvMw89HdFkHHejTeHXw40vs08ddrCKZXroeeg1ubsQSCLik9QBfo2uQr3HYjzq3Ug5SWwM7b2KhxBRyitW3jJiXPezGVvt5akGicZINV71S7PWaGkCFQWR8YfAW7UDXNPEKba8na6koDVwwH5F+7BRNt5EeCT9sKESmRALwZvjdjaOhjN13kLRTBxFzuwqVICikbxl07AWc5Un40so2OANxqyYGRRgfyQJ+6LEiQFOQcrPrATw4O7/NENb+9n5YreNjybNvA=
