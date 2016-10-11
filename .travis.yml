@@ -4,16 +4,15 @@ node_js:
 branches:
   only:
   - master
-env:
-  global:
-    secure: U39r+Oohi9QiKN4qsS8ckNVdoJHFWegQFdG7m3U39kmjJOu3mWdTKtpd5IY+KLC5xL643pq/XD8GHmAp3IQal9xIaFNvJKyvXYyxm/TzojtXBYY9uJGeYnYzIR5o6NYLIIm4a25VR+S+C6q6dn9N4RYzaWynUY1TXOp6vzgy2zjVom/g6pDgGW9QbYR5wHpyWIw0uAbIqldExMluLnQ5DTlF4lQvtZHBNFZNcqUSZKJnYmWEdDIbuPShbIFdk1V67868hARDUdXtidG+sbgfLcSl9cXaiIKu++mbIPjG4hHQ7LEBB4m+IrD36ObRCHm0DE6FvAmEjx7+syyRD4txLJpUwEkdSAS+5Stx0rw9psTdty1uMh6+Y7Dsijaadg2kpqOtjEEFi+AfmJbZzcOndNlkyGjUP5XoAoQXWMFwzOMZVkGaQQNkoTKaqsJjPwgNyU5NFt4ZbCIt7D5i/MH5XHFgEo9Yudi7WCr3WnNvH5b4MR02e4ClDgzNqodtBKw7vE+ua+tnzYJ6AS3W3FT4q3r99BjAMKVWyBQGmJaL9WaX5OT4eHq5bWuAKAO1aFwL2G77rCiAQ5q2yTV8O/3kAf0uuiIYl/pCS1H+2QKn+T9+9keAUFerLoJWRmS7/GC0KOx9xEY0o0xTENAIA85Xje9IkZsV1mh0EmfSvhi1+CI=
 install:
 - npm install hexo-cli -g
 - npm install
 before_script:
 - git config --global user.name 'weinot'
 - git config --global user.email 'weinot@gmail.com'
-- sed -i'' "s~https://github.com/weinot/weinot.github.io.git~https://${REPO_TOKEN}@github.com/weinot/weinot.github.io.git~"
-  _config.yml
+- sed -i'' "/^ *repo/s~github\.com~${GH_TOKEN}@github.com~" _config.yml
 script:
 - npm run deploy
+env:
+  global:
+    secure: gOGExzeliiGANCkTKq5Q3WmnWdyTDZN/zt6uMzUs/reiFCkE78tGoesTrkh2AZYyJAyfRybCBuDiyRm/XW5jjtpup/WB8oMqdRTZHUQI9AB1wDAzDXViFAyfWH5oXrK78YQstXko9anAPyDmtW3SNXqktF6fT1LSfPHACnyuXbpBaQH7D4UlZCKd4xyhaUc0eUxP8sQt9dRaf+fgNm2mqgoD5AuH/OkfeOggTalCJ03yBO5HQFlwj0JkKJMC+LAoRBBtG6Xf5iAlnn1MEmNCEwDiq9ccQd1My6mNaSqbUXTq47/IbM7sLMCBODr3utsoKeRlwRM7c7Uob1TTWHWCqY6g2ICl0lVYW/T6haVkkim3Hy4mrR2qVBXpNEmU5e3TLv3ZinfPx5cJb+/3QOr4WV8hnUu8Bv27Lk1FBeI8Lb96oFAMA/uTbP1jCjB2TizTOQEbSWSmxXO1irqKLEaWMhPw5/iQfTzqMnTKDfmtFHj33mjUOPpriuEQ5L7JmeRAtcXx8Wd1Lwe6PHtOoS9k1CHu89f9oEZEiOrvWN6AXfW4kvpNPfGDv02ADbCzmCTlKemrOVOndNz1LtaV/03Afi8ioopkTB0BTBmrRRi2snhMlsaLwz3eoV26DWFo8EqWz9rAKjjiWjl5FqEfLu0XHgw/bpVTgKNe6P7f6WCJ7Hg=
